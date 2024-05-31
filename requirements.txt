@@ -1,0 +1,12 @@
+Flask
+Authlib
+Flask-Session
+PyJWT
+requests
+cryptography
+gunicorn
+python3-saml
+configparser
+werkzeug
+flask-session
+urllib3
