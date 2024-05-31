@@ -1,0 +1,1 @@
+# jitsi-OIDC-SAML-adapter
