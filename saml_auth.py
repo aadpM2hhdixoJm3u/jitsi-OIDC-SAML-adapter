@@ -225,7 +225,7 @@ def create_saml_metadata():
 
     try:
         with open(metadata_file_path, 'w') as metadata_file:
-            metadata_file.write(metadata.decode('utf-8'))  # Decode bytes to string
+            metadata_file.write(metadata.decode('utf-8'))  
         logging.info(f"Metadata successfully generated and saved to {metadata_file_path}")
     except Exception as e:
         logging.error(f"Failed to generate or write metadata: {e}")

@@ -163,7 +163,7 @@ def parse_id_token(id_token, jwks_uri):
 
 @oidc_blueprint.route('/oidc/auth')
 def login():
-    logging.info("Accessed login endpoint")  # Debug logging
+    logging.info("Accessed login endpoint")
     redirect_uri = urljoin(jitsi_base, '/oidc/redirect')
     logging.debug(f'Redirect URI: {redirect_uri}')
     result = oauth.oidc.create_authorization_url(redirect_uri=redirect_uri)
@@ -187,7 +187,7 @@ def login():
 
 @oidc_blueprint.route('/oidc/redirect')
 def oauth_callback():
-    logging.info("Accessed oauth_callback endpoint")  # Debug logging
+    logging.info("Accessed oauth_callback endpoint")
     try:
         code = request.args.get('code')
         if not code:
