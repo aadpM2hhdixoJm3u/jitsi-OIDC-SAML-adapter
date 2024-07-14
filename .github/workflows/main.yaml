@@ -28,7 +28,9 @@ jobs:
 
       - name: Extract repository name
         id: extract_repo
-        run: echo "::set-output name=repo::${GITHUB_REPOSITORY##*/}"
+        run:
+          echo "::set-output name=repo::$(echo ${GITHUB_REPOSITORY##*/} | tr
+          '[:upper:]' '[:lower:]')"
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
@@ -36,8 +38,9 @@ jobs:
           context: .
           push: true
           tags:
-            ${{ secrets.DOCKERHUB_USERNAME }}/${{ steps.extract_repo.outputs.repo
-            }}:${{ steps.extract_version.outputs.version }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/${{
+            steps.extract_repo.outputs.repo }}:${{
+            steps.extract_version.outputs.version }}
 
       - name: Log out from Docker Hub
         run: docker logout
