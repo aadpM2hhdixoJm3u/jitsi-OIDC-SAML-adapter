@@ -1,1 +1,7 @@
 
+2024-07-12 22:32:28,243 - INFO - Configuration loaded successfully
+2024-07-12 22:32:28,350 - INFO - OAuth client registered using static configuration
+2024-07-12 22:32:47,072 - INFO - Configuration loaded successfully
+2024-07-12 22:32:47,072 - INFO - Certificate or key does not exist, creating...
+2024-07-12 22:32:47,217 - INFO - Certificate and key generated successfully.
+2024-07-12 22:32:47,321 - ERROR - Error fetching IdP metadata: HTTPSConnectionPool(host='idp-provider.com', port=443): Max retries exceeded with url: /metadata.xml%20 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7303d8fd7e90>: Failed to resolve 'idp-provider.com' ([Errno -2] Name or service not known)"))
