@@ -31,7 +31,7 @@ jobs:
         run: echo "::set-output name=repo::${GITHUB_REPOSITORY##*/}"
 
       - name: Build and push Docker image
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v6
         with:
           context: .
           push: true
