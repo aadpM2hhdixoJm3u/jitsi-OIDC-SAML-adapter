@@ -36,7 +36,7 @@ jobs:
           context: .
           push: true
           tags:
-            ${{ secrets.DOCKER_USERNAME }}/${{ steps.extract_repo.outputs.repo
+            ${{ secrets.DOCKERHUB_USERNAME }}/${{ steps.extract_repo.outputs.repo
             }}:${{ steps.extract_version.outputs.version }}
 
       - name: Log out from Docker Hub
