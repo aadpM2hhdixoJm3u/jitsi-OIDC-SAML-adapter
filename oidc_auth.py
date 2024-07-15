@@ -1,5 +1,6 @@
 from flask import Blueprint, request, session, url_for, redirect, current_app
 from authlib.integrations.flask_client import OAuth
+import os
 import jwt
 from jwt import PyJWTError
 from urllib.parse import urljoin
@@ -32,19 +33,24 @@ logging.basicConfig(
 # Access the settings from the configuration file
 try:
     client_id = config['oauth']['client_id']
-    client_secret = config['oauth']['client_secret']
+    client_secret = (
+        os.environ.get("OIDC_CLIENT_SECRET")
+        or config["oauth"]["client_secret"]
+    )
     authorize_url = config['oauth']['authorize_url']
     access_token_url = config['oauth']['access_token_url']
     default_scope = config['oauth']['scope']
     jwks_uri = config['oauth']['jwks_uri']
-    
+
     jitsi_base = config['urls']['jitsi_base']
     oidc_discovery = config['urls']['oidc_discovery']
 
     audience = config['jwt']['audience']
     issuer = config['jwt']['issuer']
     subject = config['jwt']['subject']
-    secret_key = config['jwt']['secret_key']
+    secret_key = (
+        os.environ.get("JWT_APP_SECRET") or config["jwt"]["secret_key"]
+    )
 
     logging.info("Configuration loaded successfully")
 except KeyError as e:
