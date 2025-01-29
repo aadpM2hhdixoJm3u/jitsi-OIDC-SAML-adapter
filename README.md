@@ -17,7 +17,7 @@ sudo apt install python3 python3-pip -y
 ```bash
 sudo apt install git -y
 git clone https://github.com/aadpM2hhdixoJm3u/jitsi-OIDC-SAML-adapter.git
-cd jitsi-OIDC-adapter
+cd jitsi-OIDC-SAML-adapter
 ```
 
 ### Step 3: Install Python Dependencies
